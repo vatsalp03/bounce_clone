@@ -1,8 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://dx4cietpm6nq1"]
+[gd_scene load_steps=5 format=3 uid="uid://dx4cietpm6nq1"]
 
 [ext_resource type="Texture2D" uid="uid://x1pqx6byghx0" path="res://Assets/Aseprite/spike.png" id="1_abcua"]
+[ext_resource type="PackedScene" uid="uid://bivkyrbwe4arf" path="res://Scenes/killzone.tscn" id="2_rh3l3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k68qr"]
+size = Vector2(8, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rh3l3"]
+size = Vector2(10, 15)
 
 [node name="enemy_spike" type="CharacterBody2D"]
+collision_mask = 2
+
+[node name="enemy_collision_box" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_k68qr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_abcua")
+
+[node name="killzone" parent="." instance=ExtResource("2_rh3l3")]
+
+[node name="enemy_kill_box" type="CollisionShape2D" parent="killzone"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_rh3l3")

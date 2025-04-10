@@ -4,14 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://bdcmol3dncl4p" path="res://Assets/Aseprite/kirby_small.png" id="1_rfcgh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m38xh"]
-radius = 8.0
+radius = 7.0
 
 [node name="player_ball" type="CharacterBody2D"]
 z_index = 5
+collision_layer = 2
 script = ExtResource("1_m38xh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_rfcgh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="player_collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_m38xh")
