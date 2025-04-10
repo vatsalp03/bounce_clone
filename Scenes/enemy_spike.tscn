@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx4cietpm6nq1"]
+
+[ext_resource type="Texture2D" uid="uid://x1pqx6byghx0" path="res://Assets/Aseprite/spike.png" id="1_abcua"]
+
+[node name="enemy_spike" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_abcua")
