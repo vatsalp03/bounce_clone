@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://0wf0suy6n61m"]
+
+[ext_resource type="Texture2D" uid="uid://cdmmqjjdpefaa" path="res://Assets/Aseprite/rings.png" id="1_rrtuc"]
+[ext_resource type="Script" uid="uid://cdxly5lfttnnh" path="res://Scripts/big_ring_passthrough.gd" id="2_rrtuc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgw7e"]
+atlas = ExtResource("1_rrtuc")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0ofe"]
+atlas = ExtResource("1_rrtuc")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gacjt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgw7e")
+}],
+"loop": true,
+"name": &"golden",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0ofe")
+}],
+"loop": true,
+"name": &"gray",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jd4bl"]
+size = Vector2(7.94025, 3.10618)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gacjt"]
+size = Vector2(8.03116, 3.96544)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ljlg"]
+size = Vector2(0.716812, 22.8592)
+
+[node name="big_ring" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gacjt")
+animation = &"golden"
+
+[node name="top_collision" type="CollisionShape2D" parent="."]
+position = Vector2(0.0234265, -14.423)
+shape = SubResource("RectangleShape2D_jd4bl")
+
+[node name="botton_collision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.0814657, 14.0559)
+shape = SubResource("RectangleShape2D_gacjt")
+
+[node name="passthrough_area" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("2_rrtuc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="passthrough_area"]
+position = Vector2(0.03302, -0.0560155)
+shape = SubResource("RectangleShape2D_4ljlg")
+
+[connection signal="body_entered" from="passthrough_area" to="passthrough_area" method="_on_body_entered"]

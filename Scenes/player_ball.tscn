@@ -1,7 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://gw6ly0umqo3f"]
+[gd_scene load_steps=11 format=3 uid="uid://gw6ly0umqo3f"]
 
-[ext_resource type="Script" uid="uid://c2rosfxs73htr" path="res://Scenes/player_ball.gd" id="1_m38xh"]
+[ext_resource type="Script" uid="uid://c2rosfxs73htr" path="res://Scripts/player_ball.gd" id="1_m38xh"]
 [ext_resource type="Texture2D" uid="uid://bdcmol3dncl4p" path="res://Assets/Aseprite/kirby_small.png" id="1_rfcgh"]
+[ext_resource type="Texture2D" uid="uid://djklhhj11bx8c" path="res://Assets/Aseprite/cute_slime_2x1.png" id="3_d8u08"]
+[ext_resource type="Texture2D" uid="uid://bdtstmt20bs1x" path="res://Assets/Aseprite/cute_slime_animated.png" id="3_k40wh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oumdn"]
+atlas = ExtResource("3_d8u08")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8u08"]
+atlas = ExtResource("3_k40wh")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qof1"]
+atlas = ExtResource("3_k40wh")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq4ro"]
+atlas = ExtResource("3_k40wh")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oumdn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oumdn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8u08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qof1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq4ro")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m38xh"]
 radius = 7.0
@@ -14,5 +57,12 @@ script = ExtResource("1_m38xh")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_rfcgh")
 
-[node name="player_collision" type="CollisionShape2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-3, 0)
+sprite_frames = SubResource("SpriteFrames_oumdn")
+animation = &"idle"
+
+[node name="player_collision" type="CollisionShape2D" parent="." groups=["player"]]
+scale = Vector2(1.06, 1.06)
 shape = SubResource("CircleShape2D_m38xh")

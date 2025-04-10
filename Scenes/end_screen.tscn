@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf4q0teby0vjm"]
+
+[ext_resource type="Script" uid="uid://deo87ybqpeoni" path="res://Scripts/end_screen.gd" id="1_1gwaw"]
+[ext_resource type="FontFile" uid="uid://cc5i41561fid0" path="res://Assets/font.ttf" id="1_f2mtv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1gwaw"]
+line_spacing = 0.0
+font = ExtResource("1_f2mtv")
+font_size = 146
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhpww"]
+font = ExtResource("1_f2mtv")
+font_size = 33
+shadow_size = 0
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_1gwaw")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+metadata/_edit_use_anchors_ = true
+
+[node name="the_end_label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.5
+offset_top = -176.0
+offset_right = 246.5
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "THE END"
+label_settings = SubResource("LabelSettings_1gwaw")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RestartButton" type="Button" parent="Panel"]
+visibility_layer = 0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -73.5
+offset_top = -298.0
+offset_right = 73.5
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 0
+button_mask = 7
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -73.5
+offset_top = -298.0
+offset_right = 73.5
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Play Again!"
+label_settings = SubResource("LabelSettings_bhpww")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Panel/RestartButton" to="." method="_on_restart_button_pressed"]
