@@ -22,7 +22,6 @@ func _physics_process(delta):
 # Add jump
 	if Input.is_action_just_pressed("jump") && is_on_floor():
 		velocity.y = -jumpforce 
-		print(velocity.y)
 
 # Add movement
 	var direction := Input.get_axis("move_left", "move_right")
