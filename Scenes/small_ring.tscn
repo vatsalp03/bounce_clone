@@ -58,7 +58,7 @@ collision_mask = 2
 script = ExtResource("2_kik8r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="passthrough_area"]
-position = Vector2(-0.25, 0)
+position = Vector2(4.02155, -0.305111)
 shape = SubResource("RectangleShape2D_4ljlg")
 
 [connection signal="body_entered" from="passthrough_area" to="passthrough_area" method="_on_body_entered"]

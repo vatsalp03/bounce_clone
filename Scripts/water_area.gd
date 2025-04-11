@@ -1,9 +1,14 @@
 extends Area2D
 
 func _on_body_entered(body):
-	print("i am under the water please help me")
-	body.player_weight = -1
+	if body.has_method("is_big") and body.is_big():
+		print("Big player entered water — buoyancy on")
+		body.player_weight = -1
+	else:
+		print("Small player entered water — no buoyancy")
+		body.player_weight = 1  # small form uses normal gravity
 
 func _on_body_exited(body):
+	print("Exited water")
 	body.player_weight = 1
-	body.velocity.y = 0      # reset vertical speed
+	body.velocity.y = 0

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1gf40qqsu1nv"]
+[gd_scene load_steps=8 format=3 uid="uid://d1gf40qqsu1nv"]
 
 [ext_resource type="Texture2D" uid="uid://duwhcgu7f3pfl" path="res://Assets/Aseprite/final_tileset.png" id="1_yj5sm"]
 [ext_resource type="Texture2D" uid="uid://gfcv8e81yg34" path="res://Assets/Aseprite/sprite_sheet.png" id="2_1br53"]
+[ext_resource type="Texture2D" uid="uid://birri8w2sywev" path="res://Assets/Aseprite/smallBIG_light.png" id="3_drmie"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1br53"]
 texture = ExtResource("1_yj5sm")
@@ -97,8 +98,11 @@ texture = ExtResource("2_1br53")
 0:5/0 = 0
 1:5/0 = 0
 2:5/0 = 0
+6:5/next_alternative_id = 3
 6:5/0 = 0
+6:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.94377, -8, 2.97612, -8, 3.00847, 8, -3.00847, 8)
 7:5/0 = 0
+7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.0576, -8, -3.04082, 8, 2.94377, 8, 3.00847, -8)
 0:6/0 = 0
 1:6/0 = 0
 2:6/0 = 0
@@ -113,11 +117,23 @@ texture = ExtResource("2_1br53")
 5:7/0 = 0
 6:7/0 = 0
 7:7/0 = 0
+16:5/next_alternative_id = 2
+16:5/0 = 0
+19:5/next_alternative_id = 2
+19:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0v1hq"]
+texture = ExtResource("3_drmie")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -3.07317, -2.07035, -8, 3.9466, -8, 8, 8, 8, 8, 3.9466, 3.04082, -2.07035, 8, -8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -2.97642, -1.99037, -8, 3.96248, -8, 8, 8, 8, 8, 3.94422, 2.97642, -2.02689, 8, -8)
 
 [sub_resource type="TileSet" id="TileSet_drmie"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1br53")
 sources/1 = SubResource("TileSetAtlasSource_drmie")
+sources/5 = SubResource("TileSetAtlasSource_0v1hq")
 
 [node name="TileMap" type="TileMap"]
 tile_set = SubResource("TileSet_drmie")

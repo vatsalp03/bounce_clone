@@ -1,50 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://gw6ly0umqo3f"]
+[gd_scene load_steps=6 format=3 uid="uid://gw6ly0umqo3f"]
 
 [ext_resource type="Script" uid="uid://c2rosfxs73htr" path="res://Scripts/player_ball.gd" id="1_m38xh"]
 [ext_resource type="Texture2D" uid="uid://bdcmol3dncl4p" path="res://Assets/Aseprite/kirby_small.png" id="1_rfcgh"]
-[ext_resource type="Texture2D" uid="uid://djklhhj11bx8c" path="res://Assets/Aseprite/cute_slime_2x1.png" id="3_d8u08"]
-[ext_resource type="Texture2D" uid="uid://bdtstmt20bs1x" path="res://Assets/Aseprite/cute_slime_animated.png" id="3_k40wh"]
+[ext_resource type="Texture2D" uid="uid://ccr1eaoqul60x" path="res://Assets/Aseprite/kirby_BIG.png" id="5_5qof1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oumdn"]
-atlas = ExtResource("3_d8u08")
-region = Rect2(0, 0, 32, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d8u08"]
-atlas = ExtResource("3_k40wh")
-region = Rect2(0, 0, 32, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5qof1"]
-atlas = ExtResource("3_k40wh")
-region = Rect2(32, 0, 32, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bq4ro"]
-atlas = ExtResource("3_k40wh")
-region = Rect2(64, 0, 32, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_oumdn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oumdn")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 0.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d8u08")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5qof1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bq4ro")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 6.0
-}]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bq4ro"]
+radius = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m38xh"]
 radius = 7.0
@@ -54,15 +15,16 @@ z_index = 5
 collision_layer = 2
 script = ExtResource("1_m38xh")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BIG_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("5_5qof1")
+
+[node name="BIG_collision" type="CollisionShape2D" parent="."]
+scale = Vector2(0.98, 0.98)
+shape = SubResource("CircleShape2D_bq4ro")
+
+[node name="small_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_rfcgh")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(-3, 0)
-sprite_frames = SubResource("SpriteFrames_oumdn")
-animation = &"idle"
-
-[node name="player_collision" type="CollisionShape2D" parent="." groups=["player"]]
+[node name="small_collision" type="CollisionShape2D" parent="." groups=["player"]]
 scale = Vector2(1.06, 1.06)
 shape = SubResource("CircleShape2D_m38xh")

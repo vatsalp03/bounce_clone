@@ -31,10 +31,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jd4bl"]
-size = Vector2(7.94025, 3.10618)
+size = Vector2(7.94025, 1.33916)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gacjt"]
-size = Vector2(8.03116, 3.96544)
+size = Vector2(8.03116, 1.6907)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ljlg"]
 size = Vector2(0.716812, 22.8592)
@@ -46,11 +46,11 @@ sprite_frames = SubResource("SpriteFrames_gacjt")
 animation = &"golden"
 
 [node name="top_collision" type="CollisionShape2D" parent="."]
-position = Vector2(0.0234265, -14.423)
+position = Vector2(0.0234265, -15.3065)
 shape = SubResource("RectangleShape2D_jd4bl")
 
 [node name="botton_collision" type="CollisionShape2D" parent="."]
-position = Vector2(-0.0814657, 14.0559)
+position = Vector2(-0.0814657, 15.1933)
 shape = SubResource("RectangleShape2D_gacjt")
 
 [node name="passthrough_area" type="Area2D" parent="."]
