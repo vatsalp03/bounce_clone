@@ -1,3 +1,5 @@
+#player_ball.gd
+
 extends CharacterBody2D
 
 @export var speed = 120            # players speed
@@ -74,4 +76,6 @@ func _ready():
 	if scene_name == "level_1":
 		become_small()
 	elif scene_name == "level_2":
+		become_small()
+	elif scene_name == "level_3":
 		become_big()

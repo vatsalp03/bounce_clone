@@ -1,3 +1,5 @@
+# end_screen.gd
+
 extends CanvasLayer
 
 func _on_restart_button_pressed():

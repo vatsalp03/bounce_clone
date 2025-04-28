@@ -1,3 +1,5 @@
+# rings_collected_label.gd
+
 extends Label
 
 func _process(_delta):

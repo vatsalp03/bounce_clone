@@ -1,3 +1,5 @@
+# big_ring_passthrough.gd
+
 extends Area2D
 @onready var big_ring: CharacterBody2D = $".."
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../AnimatedSprite2D"

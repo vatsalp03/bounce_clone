@@ -1,3 +1,5 @@
+# killzone.gd
+
 extends Area2D
 
 @onready var kill_timer = $Timer

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdk4xsd3norn8"]
+
+[ext_resource type="Texture2D" uid="uid://bxam6vjjgj4ow" path="res://Assets/Aseprite/blue_enemy.png" id="1_5uhx2"]
+[ext_resource type="Script" uid="uid://b8dua72t3u8lw" path="res://Scripts/blue_enemy.gd" id="1_iplp6"]
+[ext_resource type="PackedScene" uid="uid://bivkyrbwe4arf" path="res://Scenes/killzone.tscn" id="2_1oe5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iplp6"]
+size = Vector2(30.1759, 33.5616)
+
+[node name="blue_enemy" type="CharacterBody2D"]
+script = ExtResource("1_iplp6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5uhx2")
+
+[node name="raycastDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 17)
+
+[node name="raycastUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -17)
+
+[node name="killzone" parent="." instance=ExtResource("2_1oe5d")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(0.0869103, 0)
+scale = Vector2(0.988412, 0.89388)
+shape = SubResource("RectangleShape2D_iplp6")
